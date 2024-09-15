@@ -79,7 +79,6 @@ const Login = () => {
 					value={room}
 					onChange={(e) => setRoom(e.target.value)}
 				/>
-				<Input placeholder="Password" type="password" variant="filled" mb={6} />
 				<Button colorScheme="teal" mb={8} onClick={handleClick}>
 					Join
 				</Button>
