@@ -18,7 +18,7 @@ Collaby is a collaborative application that allows users to create and join room
 
 ## Contribution
 
-This project was solely developed by [Your Name], responsible for:
+This project was solely developed by me (Shlok), responsible for:
 
 -   Setting up the entire React environment.
 -   Integrating Socket.io for real-time chat and word editing.
