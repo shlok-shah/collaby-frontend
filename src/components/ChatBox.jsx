@@ -1,4 +1,4 @@
-import { VStack, Box, Divider, useToast } from "@chakra-ui/react";
+import { VStack, Box, Divider, useToast, useColorModeValue } from "@chakra-ui/react";
 import { useState, useContext, useEffect } from "react";
 import { MainContext } from "../mainContext";
 import { UsersContext } from "../usersContext";
@@ -15,6 +15,10 @@ const ChatBox = () => {
 	const { users } = useContext(UsersContext);
 	const navigate = useNavigate();
 	const toast = useToast();
+
+	const fontColor = useColorModeValue("black", "white");
+	const formBackground = useColorModeValue("blue.500", "gray.700");
+	const theBackground = useColorModeValue("gray.200", "gray.600");
 
 	window.onpopstate = (e) => logout();
 
@@ -49,16 +53,17 @@ const ChatBox = () => {
 		setName("");
 		setRoom("");
 		navigate("/", { replace: true });
+		window.location.reload();
 	};
 
 	return (
-		<VStack border="1px solid" w="100%" h="100vh" overflow="hidden" spacing="0">
+		<VStack w="100%" h="100vh" overflow="hidden" spacing="0">
 			<ChatHeader />
-			<Box h="80vh" p={3} w="100%" overflowY="scroll" bg="gray.50">
+			<Box h="80vh" p={3} w="100%" overflowY="scroll" bg={theBackground}>
 				{messages.map((msg, index) => (
 					<Box key={index}>
 						<ChatMessage message={msg.text} name={msg.name} />
-						<Divider bg="gray.400" />
+						<Divider bg={fontColor} color={fontColor} borderColor={fontColor} />
 					</Box>
 				))}
 			</Box>

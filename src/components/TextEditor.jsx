@@ -86,7 +86,27 @@ const TextEditor = () => {
 		}
 	};
 
-	return <ReactQuill ref={quillRef} theme="snow" placeholder="Start collaborating..." style={{ height: "60vh" }} />;
+	return (
+		<>
+			<ReactQuill
+				ref={quillRef}
+				theme="snow"
+				color={"black"}
+				placeholder="Start collaborating..."
+				style={{ height: "calc(100vh - 45px)" }}
+			/>
+			<style>
+				{`
+	  			.ql-toolbar {
+				background-color: #6a7a90 !important;
+				}
+				.ql-container, .ql-toolbar {
+					border: none !important; /* Remove the borders */
+				}
+				`}
+			</style>
+		</>
+	);
 };
 
 export default TextEditor;

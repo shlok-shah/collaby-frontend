@@ -11,6 +11,10 @@ import {
 	useColorMode,
 	useColorModeValue,
 	useToast,
+	PinInput,
+	PinInputField,
+	HStack,
+	Text,
 } from "@chakra-ui/react";
 import { SocketContext } from "../socketContext";
 import { UsersContext } from "../usersContext";
@@ -24,7 +28,7 @@ const Login = () => {
 	const { setUsers } = useContext(UsersContext);
 
 	const { toggleColorMode } = useColorMode();
-	const formBackground = useColorModeValue("gray.100", "gray.700");
+	const formBackground = useColorModeValue("gray.200", "gray.700");
 	const theBackground = useColorModeValue("gray.300", "gray.600");
 
 	useEffect(() => {
@@ -71,20 +75,28 @@ const Login = () => {
 					value={name}
 					onChange={(e) => setName(e.target.value)}
 				/>
-				<Input
-					placeholder="Room No."
-					type="number"
-					variant="filled"
-					mb={3}
-					value={room}
-					onChange={(e) => setRoom(e.target.value)}
-				/>
+				<FormControl isRequired>
+					<HStack alignSelf="center" mb={3}>
+						<Text>Room code:</Text>
+
+						<PinInput
+							variant="filled"
+							type="alphanumeric"
+							value={room}
+							onChange={(value) => setRoom(value.toUpperCase())}>
+							<PinInputField />
+							<PinInputField />
+							<PinInputField />
+							<PinInputField />
+						</PinInput>
+					</HStack>
+				</FormControl>
 				<Button colorScheme="teal" mb={8} onClick={handleClick}>
 					Join
 				</Button>
-				<FormControl display="flex" alignItems="center">
+				<FormControl display="flex" alignItems="center" justifyContent="center">
 					<FormLabel htmlFor="dark_mode" mb="0">
-						Enable Dark Mode?
+						Toggle Dark Mode?
 					</FormLabel>
 					<Switch id="dark_mode" colorScheme="teal" size="lg" onChange={toggleColorMode} />
 				</FormControl>
