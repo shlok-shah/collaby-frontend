@@ -14,7 +14,6 @@ Collaby is a collaborative application that allows users to create and join room
 -   **React.js**: For building the user interface.
 -   **Socket.io**: For real-time communication between users in chat and collaborative editing.
 -   **Chakra UI**: A component library to design the interface with reusable, responsive components.
--   **React-Quill**: Rich text editor for collaborative editing functionality.
 
 ## Contribution
 
@@ -24,3 +23,25 @@ This project was solely developed by me (Shlok), responsible for:
 -   Integrating Socket.io for real-time chat and word editing.
 -   Implementing the task assignment and management features.
 -   Designing and styling the UI using Chakra UI.
+
+## Running it locally
+
+Frontend
+- Clone this repository
+- npm i
+- npm run dev (Running it on development)
+- Should be visible at http://localhost:5173
+
+Backend
+- Clone https://github.com/shlok-shah/collaby-backend
+- npm i
+- Run your local mongodb server (mongodb://localhost:27017) OR If you want to connect to mongodb atlas instead of local instance create a new .env file in the root of the directory. Add MONGO_URL={your atlas url} to the file
+- if running mongodb server locally, use "npm start"
+- If using mongodb atlas instead, run "npm run prod"
+
+The backend should be running at http://localhost:5000
+
+##Deployed at
+
+- The fully functional website is deployed at https://collaby-frontend.vercel.app/
+
